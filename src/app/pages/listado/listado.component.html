@@ -4,8 +4,12 @@
     <input type="text" #apellido1/>
 
     <input type="text" #apellido2/>
-    <button (click)="crearAlumno(nombre, apellido1,apellido2)">CREAR</button>
+    <button (click)="crearAlumno(nombre.value, apellido1.value ,apellido2.value)">CREAR</button>
 </div>
 
+<div *ngFor="let a of alumnosArray">
+    {{a.nombre}}
+    <button (click)="eliminar(a.nombre)">ELIMINAR</button>
+</div>
 
 <button (click)="salir()"> Salir</button>
