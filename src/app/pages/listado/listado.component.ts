@@ -16,7 +16,7 @@ export class ListadoComponent implements OnInit {
   
   constructor(private router: Router, private db: AngularFirestore) {
     this.alumnosRef = this.db.collection('alumnos');
-    const alumnos = this.db.collection('alumnos').snapshotChanges();
+    const alumnos = this.db.collection('alumnos').valueChanges();
     alumnos.subscribe((res)=>{
       this.alumnosArray = res
     });
