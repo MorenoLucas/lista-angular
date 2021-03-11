@@ -8,6 +8,8 @@ import { AngularFireModule } from '@angular/fire';
 import { AngularFirestoreModule } from '@angular/fire/firestore';
 import { AngularFireStorageModule } from '@angular/fire/storage';
 import { AngularFireAuthModule } from '@angular/fire/auth';
+import { LoginComponent } from './pages/login/login.component';
+import { ListadoComponent } from './pages/listado/listado.component';
 
 const config = {
   apiKey: "AIzaSyCyFEMjmxH00nYZWQ4MMqzDNPK5n3EBPhc",
@@ -20,7 +22,9 @@ const config = {
 };
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    LoginComponent,
+    ListadoComponent
   ],
   imports: [
     BrowserModule,
