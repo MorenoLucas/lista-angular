@@ -10,6 +10,8 @@ import { AngularFireStorageModule } from '@angular/fire/storage';
 import { AngularFireAuthModule } from '@angular/fire/auth';
 import { LoginComponent } from './pages/login/login.component';
 import { ListadoComponent } from './pages/listado/listado.component';
+import { IonicModule } from '@ionic/angular';
+import { FormsModule } from '@angular/forms';
 
 const config = {
   apiKey: "AIzaSyCyFEMjmxH00nYZWQ4MMqzDNPK5n3EBPhc",
@@ -31,7 +33,9 @@ const config = {
     AppRoutingModule,AngularFireModule.initializeApp(config),
     AngularFirestoreModule, // firestore
     AngularFireAuthModule, // auth
-    AngularFireStorageModule 
+    AngularFireStorageModule,
+    IonicModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

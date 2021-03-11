@@ -11,7 +11,7 @@ export class AppComponent  {
   title = 'lista-angular';
   // para poder leer base de datos de firebase, siempre constructor
   constructor(private db: AngularFirestore) {
-    const prueba = this.db.collection('prueba').valueChanges();
+    const prueba = this.db.collection('alumnos').valueChanges();
     prueba.subscribe(console.log);
 }
 
