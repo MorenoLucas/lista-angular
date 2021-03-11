@@ -1,1 +1,11 @@
-<p>listado works!</p>
+<div>
+    <input type="text" #nombre/>
+
+    <input type="text" #apellido1/>
+
+    <input type="text" #apellido2/>
+    <button (click)="crearAlumno(nombre, apellido1,apellido2)">CREAR</button>
+</div>
+
+
+<button (click)="salir()"> Salir</button>
