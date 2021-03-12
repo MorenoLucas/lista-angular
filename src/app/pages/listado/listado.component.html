@@ -1,20 +1,29 @@
-<div>
-  <label for="">Alumnos</label>
-  <input type="text" #nombre />
-  <br />
-  <label for="">apellido</label>
-  <input type="text" #apellido1 />
-  <br />
-  <label for="">Segundo Apellido</label>
-  <input type="text" #apellido2 />
-  <button (click)="crearAlumno(nombre.value, apellido1.value, apellido2.value)">
-    CREAR
-  </button>
-</div>
+<main>
+  <div class="agregar">
+    <label class="agregarAl" for="">Nombre</label>
+    <input type="text" #nombre class="inp" />
+    <br />
+    <label for="" class="agregarAl">Apellido</label>
+    <input type="text" #apellido1 class="inp" />
+    <br />
+    <label for="" class="agregarAl">Segundo Apellido</label>
+    <input type="text" #apellido2 class="inp" />
+    <br />
+    <button
+      (click)="crearAlumno(nombre.value, apellido1.value, apellido2.value)"
+    >
+      CREAR
+    </button>
+  </div>
+  <h2>Alumnos</h2>
+  <div class="alumnos">
+    <ul>
+      <li *ngFor="let a of alumnosArray" class="alumno">
+        <p class="nombre">{{ a.data.nombre }} {{ a.data.apellido1 }}</p>
+        <button (click)="eliminar(a.id)">ELIMINAR</button>
+      </li>
+    </ul>
+  </div>
 
-<div *ngFor="let a of alumnosArray">
-  <p>{{ a.data.nombre }} {{ a.data.apellido1 }}</p>
-  <button (click)="eliminar(a.id)">ELIMINAR</button>
-</div>
-
-<button (click)="salir()">Salir</button>
+  <button class="salir" (click)="salir()">Salir</button>
+</main>
