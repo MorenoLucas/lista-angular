@@ -13,28 +13,25 @@ import { ListadoComponent } from './pages/listado/listado.component';
 import { IonicModule } from '@ionic/angular';
 import { FormsModule } from '@angular/forms';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-
-import {MatButtonModule} from '@angular/material/button';
-import {MatInputModule} from '@angular/material/input';
+import { MatIconModule } from '@angular/material/icon';
+import { MatButtonModule } from '@angular/material/button';
+import { MatInputModule } from '@angular/material/input';
 
 const config = {
-  apiKey: "AIzaSyCyFEMjmxH00nYZWQ4MMqzDNPK5n3EBPhc",
-  authDomain: "lista-curso-f7744.firebaseapp.com",
-  projectId: "lista-curso-f7744",
-  storageBucket: "lista-curso-f7744.appspot.com",
-  messagingSenderId: "278678780821",
-  appId: "1:278678780821:web:51b8dff9afbb2dece5549c",
-  measurementId: "G-2BRTHMD3Z4"
+  apiKey: 'AIzaSyCyFEMjmxH00nYZWQ4MMqzDNPK5n3EBPhc',
+  authDomain: 'lista-curso-f7744.firebaseapp.com',
+  projectId: 'lista-curso-f7744',
+  storageBucket: 'lista-curso-f7744.appspot.com',
+  messagingSenderId: '278678780821',
+  appId: '1:278678780821:web:51b8dff9afbb2dece5549c',
+  measurementId: 'G-2BRTHMD3Z4',
 };
 @NgModule({
-  declarations: [
-    AppComponent,
-    LoginComponent,
-    ListadoComponent
-  ],
+  declarations: [AppComponent, LoginComponent, ListadoComponent],
   imports: [
     BrowserModule,
-    AppRoutingModule,AngularFireModule.initializeApp(config),
+    AppRoutingModule,
+    AngularFireModule.initializeApp(config),
     AngularFirestoreModule, // firestore
     AngularFireAuthModule, // auth
     AngularFireStorageModule,
@@ -43,8 +40,9 @@ const config = {
     BrowserAnimationsModule,
     MatButtonModule,
     MatInputModule,
+    MatIconModule,
   ],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}
