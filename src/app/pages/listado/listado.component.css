@@ -2,6 +2,10 @@ main {
   margin: 0 auto;
   display: flex;
   flex-direction: column;
+
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
 }
 .agregar {
   margin: 0 auto 30px auto;
@@ -42,7 +46,10 @@ main {
 h2 {
   text-align: center;
 }
-
+.material-icons {
+  align-items: center;
+  justify-content: center;
+}
 .salir {
   width: 200px;
   margin: 0 auto;

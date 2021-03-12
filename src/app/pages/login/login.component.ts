@@ -21,6 +21,7 @@ export class LoginComponent implements OnInit {
       this.router.navigateByUrl('listado');
     } else {
       console.log('falta email o pass');
+      alert('Falta ingresar el Email o la Contraseña');
     }
   }
 }

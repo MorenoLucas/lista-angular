@@ -1,4 +1,4 @@
-<main>
+<main class="menu">
   <div class="agregar">
     <label class="agregarAl" for="">Nombre</label>
     <input type="text" #nombre class="inp" />
@@ -20,7 +20,8 @@
     <ul>
       <li *ngFor="let a of alumnosArray" class="alumno">
         <p class="nombre">{{ a.data.nombre }} {{ a.data.apellido1 }}</p>
-        <button (click)="eliminar(a.id)"></button>
+
+        <span (click)="eliminar(a.id)" class="material-icons"> delete </span>
       </li>
     </ul>
   </div>

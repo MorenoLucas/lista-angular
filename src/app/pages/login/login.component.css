@@ -8,3 +8,24 @@ mat-form-field {
 input {
   margin: 10px;
 }
+.login {
+  display: flex;
+
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+.formulario {
+  padding: 20px;
+  border-radius: 10px;
+  border: 2px solid black;
+  display: flex;
+  flex-direction: column;
+}
+.ingresar {
+  margin-bottom: 10px;
+  border: none;
+  border-bottom: 2px solid grey !important;
+  margin-right: 10px;
+}

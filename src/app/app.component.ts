@@ -6,24 +6,22 @@ import { Router } from '@angular/router';
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
-  styleUrls: ['./app.component.css']
+  styleUrls: ['./app.component.css'],
 })
-
-
-export class AppComponent  {
+export class AppComponent {
   title = 'lista-angular';
   flags = true;
+
   // para poder leer base de datos de firebase, siempre constructor
-  constructor(private db: AngularFirestore, private router:Router) {
+  constructor(private db: AngularFirestore, private router: Router) {
     const prueba = this.db.collection('alumnos').valueChanges();
     prueba.subscribe(console.log);
-}
+  }
 
-entrar(){
-
-  this.router.navigateByUrl('login');
-  this.flags = false;
-
-}
-
+  entrar() {
+    if (this.flags) {
+      this.flags = false;
+      this.router.navigateByUrl('login');
+    }
+  }
 }
