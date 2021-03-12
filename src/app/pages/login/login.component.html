@@ -1,5 +1,21 @@
+<!-- <div>
+
 <input type="text" [(ngModel)]="email"/>
 
 <input type="password" [(ngModel)]="password"/>
 
-<button (click)="login()">ENTRAR</button>
+
+
+
+</div> -->
+
+<div>
+  <mat-form-field>
+    <label for="">Email</label>
+    <input matInput type="text" [(ngModel)]="email" />
+
+    <label>Contraseña</label>
+    <input matInput type="password" [(ngModel)]="password" />
+    <button mat-raised-button (click)="login()">ENTRAR</button>
+  </mat-form-field>
+</div>

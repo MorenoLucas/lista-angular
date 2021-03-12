@@ -1,15 +1,17 @@
 <div>
-    <input type="text" #nombre/>
+  <input type="text" #nombre />
 
-    <input type="text" #apellido1/>
+  <input type="text" #apellido1 />
 
-    <input type="text" #apellido2/>
-    <button (click)="crearAlumno(nombre.value, apellido1.value ,apellido2.value)">CREAR</button>
+  <input type="text" #apellido2 />
+  <button (click)="crearAlumno(nombre.value, apellido1.value, apellido2.value)">
+    CREAR
+  </button>
 </div>
 
 <div *ngFor="let a of alumnosArray">
-    <p>{{a.nombre}}</p>
-    <button (click)="eliminar(a.nombre)">ELIMINAR</button>
+  <p>{{ a.nombre }}</p>
+  <button (click)="eliminar(a.nombre)">ELIMINAR</button>
 </div>
 
-<button (click)="salir()"> Salir</button>
+<button (click)="salir()">Salir</button>

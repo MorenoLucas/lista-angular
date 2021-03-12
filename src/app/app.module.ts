@@ -12,6 +12,10 @@ import { LoginComponent } from './pages/login/login.component';
 import { ListadoComponent } from './pages/listado/listado.component';
 import { IonicModule } from '@ionic/angular';
 import { FormsModule } from '@angular/forms';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+
+import {MatButtonModule} from '@angular/material/button';
+import {MatInputModule} from '@angular/material/input';
 
 const config = {
   apiKey: "AIzaSyCyFEMjmxH00nYZWQ4MMqzDNPK5n3EBPhc",
@@ -35,7 +39,10 @@ const config = {
     AngularFireAuthModule, // auth
     AngularFireStorageModule,
     IonicModule,
-    FormsModule
+    FormsModule,
+    BrowserAnimationsModule,
+    MatButtonModule,
+    MatInputModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

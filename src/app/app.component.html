@@ -1,5 +1,8 @@
-
-
-<button  *ngIf="flags" (click)="entrar()">LOGIN </button>
-
-<router-outlet></router-outlet>
+<div>
+  <section>
+    <div class="example-button-row">
+      <button mat-raised-button *ngIf="flags" (click)="entrar()">LOGIN</button>
+    </div>
+  </section>
+</div>
+<router-outlet> </router-outlet>
