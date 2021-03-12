@@ -20,7 +20,7 @@
     <ul>
       <li *ngFor="let a of alumnosArray" class="alumno">
         <p class="nombre">{{ a.data.nombre }} {{ a.data.apellido1 }}</p>
-        <button (click)="eliminar(a.id)"><mat-icon>delete</mat-icon></button>
+        <button (click)="eliminar(a.id)"></button>
       </li>
     </ul>
   </div>
