@@ -11,8 +11,10 @@ export class ListadoComponent implements OnInit {
   nombre: string;
   apellido1: string;
   apellido2: string;
+  tel: number;
   alumnosRef;
   alumnosArray = [];
+  rol: string;
 
   constructor(private router: Router, private db: AngularFirestore) {
     this.alumnosRef = this.db.collection('alumnos');
@@ -33,16 +35,27 @@ export class ListadoComponent implements OnInit {
 
   ngOnInit(): void {}
 
-  crearAlumno(nombre, apellido1, apellido2?) {
+  crearAlumno(nombre, apellido1, tel, dni, email, apellido2?) {
     console.log('Nombre', nombre);
     console.log('Apellido', apellido1);
     console.log('Apellido', apellido2);
-    //  añadimos alumnos a la base de datos
-    this.alumnosRef.add({
+    console.log(tel);
+    console.log(dni);
+    console.log(email);
+    //  añadimos alumnos a la base de datos y le creamos el ID
+    this.alumnosRef.doc(dni).set({
       nombre: nombre,
       apellido1: apellido1,
       apellido2: apellido2,
+      tel: tel,
+      dni: dni,
+      email: email,
+      rol: this.rol,
+      date: new Date(),
     });
+  }
+  rolDefinido(rolParametro: string) {
+    this.rol = rolParametro;
   }
   eliminar(id) {
     console.log('Nombre', id);

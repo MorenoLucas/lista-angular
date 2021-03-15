@@ -16,6 +16,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatButtonModule } from '@angular/material/button';
 import { MatInputModule } from '@angular/material/input';
 import { ListadoRolComponent } from './components/listado-rol/listado-rol.component';
+import { AdminComponent } from './pages/admin/admin.component';
+import { ListadoAlumnosComponent } from './components/listado-alumnos/listado-alumnos.component';
 
 const config = {
   authDomain: 'lista-curso-f7744.firebaseapp.com',
@@ -23,7 +25,7 @@ const config = {
   storageBucket: 'lista-curso-f7744.appspot.com',
 };
 @NgModule({
-  declarations: [AppComponent, LoginComponent, ListadoComponent, ListadoRolComponent],
+  declarations: [AppComponent, LoginComponent, ListadoComponent, ListadoRolComponent, AdminComponent, ListadoAlumnosComponent],
   imports: [
     BrowserModule,
     AppRoutingModule,

@@ -1,1 +1,9 @@
-<p>listado-rol works!</p>
+<label for="rol">Rol</label>
+<select
+  name="rol"
+  id="rol"
+  [ngModel]="selectedItem"
+  (ngModelChange)="onChange($event)"
+>
+  <option *ngFor="let rol of rolesArray" [value]="rol">{{ rol }}</option>
+</select>

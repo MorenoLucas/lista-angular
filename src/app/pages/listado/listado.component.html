@@ -2,44 +2,50 @@
   <div class="agregar">
     <label class="agregarAl" for="">Nombre</label>
     <input type="text" #nombre class="inp" />
+  </div>
+  <div class="agregar">
     <br />
     <label for="" class="agregarAl">Apellido</label>
     <input type="text" #apellido1 class="inp" />
-    <br />
+  </div>
+  <br />
+  <div class="agregar">
     <label for="" class="agregarAl">Segundo Apellido</label>
     <input type="text" #apellido2 class="inp" />
+  </div>
+  <div class="agregar">
     <label for="" class="agregarAl">Telefono</label>
     <input type="number" class="inp" #tel />
+  </div>
+  <div class="agregar">
     <label for="" class="agregarAl">DNI</label>
     <input type="text" class="inp" #dni />
+  </div>
+  <div class="agregar">
     <label for="" class="agregarAl">MAIL</label>
     <input type="mail" class="inp" #email />
-    <br />
-    <button
-      (click)="
-        crearAlumno(
-          nombre.value,
-          apellido1.value,
-          apellido2.value,
-          tel.value,
-          dni.value,
-          email.value
-        )
-      "
-    >
-      CREAR
-    </button>
   </div>
-  <h2>Alumnos</h2>
-  <div class="alumnos">
-    <ul>
-      <li *ngFor="let a of alumnosArray" class="alumno">
-        <p class="nombre">{{ a.data.nombre }} {{ a.data.apellido1 }}</p>
+  <br />
+  <div class="agregar">
+    <app-listado-rol (rol)="rolDefinido($event)"></app-listado-rol>
+  </div>
+  <button
+    (click)="
+      crearAlumno(
+        nombre.value,
+        apellido1.value,
+        apellido2.value,
+        tel.value,
+        dni.value,
+        email.value
+      )
+    "
+  >
+    CREAR
+  </button>
 
-        <span (click)="eliminar(a.id)" class="material-icons"> delete </span>
-      </li>
-    </ul>
-  </div>
+  <h2>Alumnos</h2>
+  <app-listado-alumnos></app-listado-alumnos>
 
   <button class="salir" (click)="salir()">Salir</button>
 </main>
