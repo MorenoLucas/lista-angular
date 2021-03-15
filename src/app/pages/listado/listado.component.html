@@ -8,9 +8,24 @@
     <br />
     <label for="" class="agregarAl">Segundo Apellido</label>
     <input type="text" #apellido2 class="inp" />
+    <label for="" class="agregarAl">Telefono</label>
+    <input type="number" class="inp" #tel />
+    <label for="" class="agregarAl">DNI</label>
+    <input type="text" class="inp" #dni />
+    <label for="" class="agregarAl">MAIL</label>
+    <input type="mail" class="inp" #email />
     <br />
     <button
-      (click)="crearAlumno(nombre.value, apellido1.value, apellido2.value)"
+      (click)="
+        crearAlumno(
+          nombre.value,
+          apellido1.value,
+          apellido2.value,
+          tel.value,
+          dni.value,
+          email.value
+        )
+      "
     >
       CREAR
     </button>
