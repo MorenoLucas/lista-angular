@@ -18,6 +18,7 @@ import { MatInputModule } from '@angular/material/input';
 import { ListadoRolComponent } from './components/listado-rol/listado-rol.component';
 import { AdminComponent } from './pages/admin/admin.component';
 import { ListadoAlumnosComponent } from './components/listado-alumnos/listado-alumnos.component';
+import { JornadasComponent } from './components/jornadas/jornadas.component';
 
 const config = {
   authDomain: 'lista-curso-f7744.firebaseapp.com',
@@ -25,7 +26,7 @@ const config = {
   storageBucket: 'lista-curso-f7744.appspot.com',
 };
 @NgModule({
-  declarations: [AppComponent, LoginComponent, ListadoComponent, ListadoRolComponent, AdminComponent, ListadoAlumnosComponent],
+  declarations: [AppComponent, LoginComponent, ListadoComponent, ListadoRolComponent, AdminComponent, ListadoAlumnosComponent, JornadasComponent],
   imports: [
     BrowserModule,
     AppRoutingModule,

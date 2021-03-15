@@ -29,6 +29,9 @@
   <div class="agregar">
     <app-listado-rol (rol)="rolDefinido($event)"></app-listado-rol>
   </div>
+  <div>
+    <app-jornadas (jornada)="jornadasDefinidas($event)"></app-jornadas>
+  </div>
   <button
     (click)="
       crearAlumno(

@@ -15,6 +15,7 @@ export class ListadoComponent implements OnInit {
   alumnosRef;
   alumnosArray = [];
   rol: string;
+  jornada;
 
   constructor(private router: Router, private db: AngularFirestore) {
     this.alumnosRef = this.db.collection('alumnos');
@@ -52,6 +53,7 @@ export class ListadoComponent implements OnInit {
       email: email,
       rol: this.rol,
       date: new Date(),
+      jornada: this.jornada,
     });
   }
   rolDefinido(rolParametro: string) {
@@ -60,6 +62,9 @@ export class ListadoComponent implements OnInit {
   eliminar(id) {
     console.log('Nombre', id);
     this.alumnosRef.doc(id).delete();
+  }
+  jornadasDefinidas(ev) {
+    this.jornada = ev;
   }
   salir() {
     this.router.navigateByUrl('login');
