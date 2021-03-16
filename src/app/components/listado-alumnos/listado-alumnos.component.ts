@@ -44,8 +44,8 @@ export class ListadoAlumnosComponent implements OnInit, OnChanges {
 
   filtrar() {
     const jornadaParseada = parseInt(this.jornada);
-    this.alumnosArrayFiltrado = this.alumnosArray.filter((participante) => {
-      if (participante.data.jornada == jornadaParseada) {
+    this.alumnosArrayFiltrado = this.alumnosArray.filter((alumnos) => {
+      if (alumnos.data.jornada == jornadaParseada) {
         return true;
       } else {
         return false;

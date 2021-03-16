@@ -1,0 +1,87 @@
+main {
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+  }
+  .campos {
+    margin: 0 auto 30px auto;
+    border: 2px solid black;
+    border-radius: 5px;
+    columns: auto 1;
+    column-fill: balance;
+    column-gap: 4%;
+  
+  }
+  .agregar{
+    display: flex;
+    flex-wrap: wrap;
+    align-items: baseline;
+    justify-content: space-evenly;
+  }
+  .agregarAl {
+    margin-right: 5px;
+  }
+  .inp {
+    margin-bottom: 10px;
+    border: none;
+    border-bottom: 1px solid grey;
+    margin-right: 10px;
+  }
+  .alumnos {
+    text-align: left;
+    padding: 20px;
+    columns: auto 1;
+    column-gap: 3%;
+    column-rule: 2px solid grey;
+    column-fill: balance;
+  }
+  .alumno {
+    margin-bottom: 20px;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: baseline;
+    justify-content: space-between;
+    border-radius: 10px 0;
+    background-color: khaki;
+  }
+  .nombre {
+    padding: 5px;
+  }
+  h2 {
+    text-align: center;
+  }
+  .material-icons {
+    align-items: center;
+    justify-content: center;
+  }
+  .salir {
+    width: 200px;
+    margin: 0 auto;
+    padding: 20px;
+  }
+  
+  @media all and (min-width: 600px) {
+    .alumnos {
+      columns: auto 2;
+    }
+    .campos{
+      columns: auto 2;
+    }
+  }
+  
+  @media all and (min-width: 900px) {
+    .alumnos {
+      columns: auto 4;
+      column-gap: 4vw;
+      padding: 4vw;
+    }
+    .campos{
+      columns: auto 3;
+      column-gap: 3vw;
+      padding: 3vw;
+    }
+  }
+  
