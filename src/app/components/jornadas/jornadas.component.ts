@@ -12,25 +12,36 @@ export class JornadasComponent implements OnInit {
   jornadasRef;
   cuantasJornadasHay;
   jornadaActual;
+  subscripcion;
 
   @Output() jornada = new EventEmitter();
-  constructor(private db: AngularFirestore) {
+  constructor(private db: AngularFirestore) {}
+
+  ngOnInit(): void {
     this.jornadasRef = this.db
       .collection('jornadas')
       .valueChanges()
       .subscribe((res) => {
         console.log(res);
         this.cuantasJornadasHay = res.find((ele) => {
+          console.log(ele['jornadas']);
           return ele['jornadas'];
         });
+        this.crearArrayDeJornadas(this.cuantasJornadasHay.jornadas);
         this.jornadaActual = res.find((ele) => {
-          return ele['jornadaActual'];
+          console.log(ele['jornada']);
+          return ele['jornada'];
         });
+        this.selectedItem = this.jornadaActual.jornada;
       });
   }
-
-  ngOnInit(): void {}
   onChange(ev) {
     this.jornada.emit(ev);
+  }
+  crearArrayDeJornadas(jornadas: any) {
+    this.jornadasArray = [];
+    for (let index = 0; index < jornadas; index++) {
+      this.jornadasArray.push(index + 1);
+    }
   }
 }

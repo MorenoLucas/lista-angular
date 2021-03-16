@@ -20,7 +20,8 @@ export class AppComponent {
 
   entrar() {
     if (this.flags) {
-      this.flags = false;
+      // volver a poner
+      this.flags = true;
       this.router.navigateByUrl('login');
     }
   }

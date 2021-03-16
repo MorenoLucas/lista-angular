@@ -1,1 +1,3 @@
-<app-listado-alumnos></app-listado-alumnos>
+<app-jornadas (jornada)="filtrarPorJornada($event)"></app-jornadas>
+
+<app-listado-alumnos [jornada]="jornadaAFiltrar"></app-listado-alumnos>

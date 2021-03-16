@@ -53,7 +53,7 @@ export class ListadoComponent implements OnInit {
       email: email,
       rol: this.rol,
       date: new Date(),
-      jornada: this.jornada,
+      jornada: parseInt(this.jornada),
     });
   }
   rolDefinido(rolParametro: string) {
