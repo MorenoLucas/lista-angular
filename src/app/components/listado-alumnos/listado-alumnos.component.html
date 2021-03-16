@@ -1,6 +1,6 @@
 <div class="alumnos">
   <ul>
-    <li *ngFor="let a of alumnosArray" class="alumno">
+    <li *ngFor="let a of alumnosArrayFiltrado" class="alumno">
       <p class="nombre">{{ a.data.nombre }} {{ a.data.apellido1 }} -</p>
 
       <span (click)="eliminar(a.id)" class="material-icons"> delete </span>

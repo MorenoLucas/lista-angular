@@ -51,6 +51,7 @@ export class ListadoAlumnosComponent implements OnInit, OnChanges {
         return false;
       }
     });
+    console.log(this.alumnosArrayFiltrado);
   }
 
   eliminar(id) {
