@@ -37,12 +37,6 @@ export class ListadoComponent implements OnInit {
   ngOnInit(): void {}
 
   crearAlumno(nombre, apellido1, tel, dni, email, apellido2?) {
-    console.log('Nombre', nombre);
-    console.log('Apellido', apellido1);
-    console.log('Apellido', apellido2);
-    console.log(tel);
-    console.log(dni);
-    console.log(email);
     //  añadimos alumnos a la base de datos y le creamos el ID
     this.alumnosRef.doc(dni).set({
       nombre: nombre,
@@ -59,10 +53,7 @@ export class ListadoComponent implements OnInit {
   rolDefinido(rolParametro: string) {
     this.rol = rolParametro;
   }
-  eliminar(id) {
-    console.log('Nombre', id);
-    this.alumnosRef.doc(id).delete();
-  }
+
   jornadasDefinidas(ev) {
     this.jornada = ev;
   }

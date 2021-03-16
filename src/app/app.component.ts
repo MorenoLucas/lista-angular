@@ -10,19 +10,10 @@ import { Router } from '@angular/router';
 })
 export class AppComponent {
   title = 'lista-angular';
-  flags = true;
 
   // para poder leer base de datos de firebase, siempre constructor
   constructor(private db: AngularFirestore, private router: Router) {
     const prueba = this.db.collection('alumnos').valueChanges();
     prueba.subscribe(console.log);
-  }
-
-  entrar() {
-    if (this.flags) {
-      // volver a poner
-      this.flags = true;
-      this.router.navigateByUrl('login');
-    }
   }
 }
