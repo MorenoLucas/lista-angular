@@ -74,6 +74,7 @@ main {
   
   @media all and (min-width: 900px) {
     .alumnos {
+      
       columns: auto 4;
       column-gap: 4vw;
       padding: 4vw;

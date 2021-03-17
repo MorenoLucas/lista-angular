@@ -1,5 +1,6 @@
 import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { AngularFirestore } from '@angular/fire/firestore';
+import { Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-jornadas',
@@ -15,6 +16,8 @@ export class JornadasComponent implements OnInit {
   subscripcion;
 
   @Output() jornada = new EventEmitter();
+  subscripcionAjornadas: Subscription;
+
   constructor(private db: AngularFirestore) {}
 
   ngOnInit(): void {
@@ -38,9 +41,16 @@ export class JornadasComponent implements OnInit {
   onChange(ev) {
     this.jornada.emit(ev);
   }
+
+  ngOnDestroy() {
+    if (this.subscripcionAjornadas) {
+      this.subscripcionAjornadas.unsubscribe();
+    }
+  }
   crearArrayDeJornadas(jornadas: any) {
     this.jornadasArray = [];
     for (let index = 0; index < jornadas; index++) {
+      // agrega las jornadas que hay dentro de la matriz
       this.jornadasArray.push(index + 1);
     }
   }

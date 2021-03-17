@@ -13,6 +13,7 @@ export class AdminComponent implements OnInit {
 
   ngOnInit(): void {}
 
+  // asignamos la información del hijo al padre
   filtrarPorJornada(ev: number) {
     console.log(ev);
     this.jornadaAFiltrar = ev;

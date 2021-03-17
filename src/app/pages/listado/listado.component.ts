@@ -50,6 +50,7 @@ export class ListadoComponent implements OnInit {
       jornada: parseInt(this.jornada),
     });
   }
+  // tomamos el evento del hijo y lo asignamos en este componente
   rolDefinido(rolParametro: string) {
     this.rol = rolParametro;
   }
