@@ -13,6 +13,10 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatButtonModule } from '@angular/material/button';
 import { MatInputModule } from '@angular/material/input';
 import { MatCardModule } from '@angular/material/card';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatIconModule } from '@angular/material/icon';
+import { MatSelectModule } from '@angular/material/select';
+
 import { ListadoRolComponent } from './components/listado-rol/listado-rol.component';
 import { AdminComponent } from './pages/admin/admin.component';
 import { ListadoAlumnosComponent } from './components/listado-alumnos/listado-alumnos.component';
@@ -49,6 +53,9 @@ const config = {
     MatButtonModule,
     MatInputModule,
     MatCardModule,
+    MatFormFieldModule,
+    MatIconModule,
+    MatSelectModule,
   ],
   providers: [],
   bootstrap: [AppComponent],

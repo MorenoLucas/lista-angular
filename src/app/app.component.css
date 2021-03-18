@@ -1,8 +1,0 @@
-@import url("https://meyerweb.com/eric/tools/css/reset/reset.css");
-
-.entrar {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 100vh;
-}

@@ -1,56 +1,85 @@
-<mat-card>
-  <main class="menu">
-    <div class="campos">
-      <div class="agregar">
-        <label class="agregarAl" for="">Nombre</label>
-        <input type="text" #nombre class="inp" />
-      </div>
-      <div class="agregar">
-        <br />
-        <label for="" class="agregarAl">Apellido</label>
-        <input type="text" #apellido1 class="inp" />
-      </div>
-      <br />
-      <div class="agregar">
-        <label for="" class="agregarAl">Segundo Apellido</label>
-        <input type="text" #apellido2 class="inp" />
-      </div>
-      <div class="agregar">
-        <label for="" class="agregarAl">Telefono</label>
-        <input type="number" class="inp" #tel />
-      </div>
-      <div class="agregar">
-        <label for="" class="agregarAl">DNI</label>
-        <input type="text" class="inp" #dni />
-      </div>
-      <div class="agregar">
-        <label for="" class="agregarAl">MAIL</label>
-        <input type="mail" class="inp" #email />
-      </div>
-      <br />
-      <div class="agregar">
-        <!-- rol viene del componente hijo, escucha el dato que se modifica en el hijo -->
-        <app-listado-rol (rol)="rolDefinido($event)"></app-listado-rol>
-      </div>
-      <div>
-        <app-jornadas (jornada)="jornadasDefinidas($event)"></app-jornadas>
-      </div>
-      <button
-        (click)="
-          crearAlumno(
-            nombre.value,
-            apellido1.value,
-            apellido2.value,
-            tel.value,
-            dni.value,
-            email.value
-          )
-        "
-      >
-        CREAR
-      </button>
+<mat-card class="centrar">
+  <div>
+    <div>
+      <mat-form-field appearance="outline">
+        <mat-label>Nombre</mat-label>
+        <input
+          [ngModel]="nombre.value"
+          (ngModelChange)="comprobarNombre($event)"
+          matInput
+          placeholder="Placeholder"
+          type="text"
+          #nombre
+        />
+        <!-- pone la clase dependiendo del valor de la variable -->
+        <mat-icon matSuffix [class]="nombreWrong">face</mat-icon>
+        <mat-hint *ngIf="nombreWrong === 'error'" class="error"
+          >El formato debe ser entre 1 y 100 caracteres</mat-hint
+        >
+      </mat-form-field>
     </div>
 
-    <button class="salir" (click)="salir()">Salir</button>
-  </main>
+    <div>
+      <mat-form-field appearance="outline">
+        <mat-label>Apellido</mat-label>
+        <input matInput placeholder="Placeholder" type="text" #apellido1 />
+        <mat-icon matSuffix>face</mat-icon>
+      </mat-form-field>
+    </div>
+    <div>
+      <mat-form-field appearance="outline">
+        <mat-label>Segundo Apellido</mat-label>
+        <input matInput placeholder="Placeholder" type="text" #apellido2 />
+        <mat-icon matSuffix>face</mat-icon>
+      </mat-form-field>
+    </div>
+
+    <div>
+      <mat-form-field appearance="outline">
+        <mat-label>Telefono</mat-label>
+        <input matInput placeholder="Placeholder" type="text" #tel />
+        <mat-icon matSuffix>tty</mat-icon>
+      </mat-form-field>
+    </div>
+
+    <div>
+      <mat-form-field appearance="outline">
+        <mat-label>DNI</mat-label>
+        <input matInput placeholder="Placeholder" type="text" #dni />
+        <mat-icon matSuffix>sentiment_very_satisfied</mat-icon>
+      </mat-form-field>
+    </div>
+
+    <div>
+      <mat-form-field appearance="outline">
+        <mat-label>Mail</mat-label>
+        <input matInput placeholder="Placeholder" type="text" #email />
+        <mat-icon matSuffix>local_post_office</mat-icon>
+      </mat-form-field>
+    </div>
+
+    <div class="agregar">
+      <!-- rol viene del componente hijo, escucha el dato que se modifica en el hijo -->
+      <app-listado-rol (rol)="rolDefinido($event)"></app-listado-rol>
+    </div>
+    <div>
+      <app-jornadas (jornada)="jornadasDefinidas($event)"></app-jornadas>
+    </div>
+    <button
+      mat-stroked-button
+      (click)="
+        crearAlumno(
+          nombre.value,
+          apellido1.value,
+          apellido2.value,
+          tel.value,
+          dni.value,
+          email.value
+        )
+      "
+    >
+      CREAR
+    </button>
+  </div>
 </mat-card>
+<button mat-stroked-button (click)="salir()">Salir</button>

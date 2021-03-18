@@ -1,3 +1,4 @@
+import { ThrowStmt } from '@angular/compiler';
 import { Component, OnInit } from '@angular/core';
 import { AngularFirestore } from '@angular/fire/firestore';
 import { Router } from '@angular/router';
@@ -16,6 +17,7 @@ export class ListadoComponent implements OnInit {
   alumnosArray = [];
   rol: string;
   jornada;
+  nombreWrong = null;
 
   constructor(private router: Router, private db: AngularFirestore) {
     this.alumnosRef = this.db.collection('alumnos');
@@ -60,5 +62,12 @@ export class ListadoComponent implements OnInit {
   }
   salir() {
     this.router.navigateByUrl('login');
+  }
+  comprobarNombre(nombre: string) {
+    if (nombre.length > 100 || nombre.length < 1) {
+      this.nombreWrong = 'error';
+    } else {
+      this.nombreWrong = 'success';
+    }
   }
 }
