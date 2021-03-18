@@ -1,20 +1,18 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-
 import { AngularFireModule } from '@angular/fire';
 import { AngularFirestoreModule } from '@angular/fire/firestore';
 import { AngularFireStorageModule } from '@angular/fire/storage';
 import { AngularFireAuthModule } from '@angular/fire/auth';
 import { LoginComponent } from './pages/login/login.component';
 import { ListadoComponent } from './pages/listado/listado.component';
-import { IonicModule } from '@ionic/angular';
 import { FormsModule } from '@angular/forms';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatButtonModule } from '@angular/material/button';
 import { MatInputModule } from '@angular/material/input';
+import { MatCardModule } from '@angular/material/card';
 import { ListadoRolComponent } from './components/listado-rol/listado-rol.component';
 import { AdminComponent } from './pages/admin/admin.component';
 import { ListadoAlumnosComponent } from './components/listado-alumnos/listado-alumnos.component';
@@ -46,11 +44,11 @@ const config = {
     AngularFirestoreModule, // firestore
     AngularFireAuthModule, // auth
     AngularFireStorageModule,
-    IonicModule,
     FormsModule,
     BrowserAnimationsModule,
     MatButtonModule,
     MatInputModule,
+    MatCardModule,
   ],
   providers: [],
   bootstrap: [AppComponent],
