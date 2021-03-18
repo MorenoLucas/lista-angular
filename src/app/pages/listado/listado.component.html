@@ -21,41 +21,67 @@
 
     <div>
       <mat-form-field appearance="outline">
-        <mat-label>Apellido</mat-label>
-        <input matInput placeholder="Placeholder" type="text" #apellido1 />
-        <mat-icon matSuffix>face</mat-icon>
-      </mat-form-field>
-    </div>
-    <div>
-      <mat-form-field appearance="outline">
-        <mat-label>Segundo Apellido</mat-label>
-        <input matInput placeholder="Placeholder" type="text" #apellido2 />
-        <mat-icon matSuffix>face</mat-icon>
-      </mat-form-field>
-    </div>
-
-    <div>
-      <mat-form-field appearance="outline">
         <mat-label>Telefono</mat-label>
-        <input matInput placeholder="Placeholder" type="text" #tel />
-        <mat-icon matSuffix>tty</mat-icon>
+        <!-- solo puede poner numeros, cantidad max 9 -->
+        <input
+          [ngModel]="tel.value"
+          (ngModelChange)="comprobarTel($event)"
+          matInput
+          placeholder="Placeholder"
+          type="text"
+          #tel
+          onkeypress="return (event.charCode >= 48 && event.charCode <= 57)"
+          min="1"
+          maxlength="9"
+        />
+        <mat-icon [class]="telWrong" matSuffix>phone</mat-icon>
+        <mat-hint *ngIf="telWrong === 'error'" class="error"
+          >EL formato debe ser de 9 digitos</mat-hint
+        >
       </mat-form-field>
     </div>
 
     <div>
       <mat-form-field appearance="outline">
-        <mat-label>DNI</mat-label>
-        <input matInput placeholder="Placeholder" type="text" #dni />
-        <mat-icon matSuffix>sentiment_very_satisfied</mat-icon>
+        <mat-label>DNI o NIE</mat-label>
+        <!-- aparece icono a alderecha con matPrefix -->
+        <mat-icon *ngIf="dniWrong === 'success'" matPrefix class="success"
+          >check</mat-icon
+        >
+
+        <input
+          [ngModel]="dni.value"
+          (ngModelChange)="comprobarDni($event)"
+          matInput
+          placeholder="Placeholder"
+          type="text"
+          #dni
+          min="1"
+          maxlength="9"
+        />
+        <mat-icon matSuffix [class]="dniWrong">assignment_id</mat-icon>
+        <mat-hint *ngIf="dniWrong === 'error'" class="error"
+          >EL formato debe ser DNI o NIE</mat-hint
+        >
       </mat-form-field>
     </div>
 
     <div>
       <mat-form-field appearance="outline">
         <mat-label>Mail</mat-label>
-        <input matInput placeholder="Placeholder" type="text" #email />
-        <mat-icon matSuffix>local_post_office</mat-icon>
+        <input
+          [ngModel]="email.value"
+          (ngModelChange)="comprobarMail($event)"
+          matInput
+          placeholder="Placeholder"
+          type="email"
+          #email
+        />
+        <mat-icon matSuffix [class]="mailWrong">local_post_office</mat-icon>
       </mat-form-field>
+      <mat-hint *ngIf="mailWrong === 'error'" class="error"
+        >EL formato debe contener @</mat-hint
+      >
     </div>
 
     <div class="agregar">
@@ -67,16 +93,7 @@
     </div>
     <button
       mat-stroked-button
-      (click)="
-        crearAlumno(
-          nombre.value,
-          apellido1.value,
-          apellido2.value,
-          tel.value,
-          dni.value,
-          email.value
-        )
-      "
+      (click)="crearAlumno(nombre.value, tel.value, dni.value, email.value)"
     >
       CREAR
     </button>

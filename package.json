@@ -23,6 +23,8 @@
     "@angular/platform-browser": "~11.2.4",
     "@angular/platform-browser-dynamic": "~11.2.4",
     "@angular/router": "~11.2.4",
+    "dni-js-validator": "^1.0.3",
+    "email-validator": "^2.0.4",
     "firebase": "^8.2.10",
     "rxjs": "~6.6.0",
     "tslib": "^2.0.0",

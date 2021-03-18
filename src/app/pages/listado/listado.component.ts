@@ -2,6 +2,8 @@ import { ThrowStmt } from '@angular/compiler';
 import { Component, OnInit } from '@angular/core';
 import { AngularFirestore } from '@angular/fire/firestore';
 import { Router } from '@angular/router';
+import * as dni from 'dni-js-validator';
+import * as validator from 'email-validator';
 
 @Component({
   selector: 'app-listado',
@@ -10,15 +12,15 @@ import { Router } from '@angular/router';
 })
 export class ListadoComponent implements OnInit {
   nombre: string;
-  apellido1: string;
-  apellido2: string;
   tel: number;
   alumnosRef;
   alumnosArray = [];
   rol: string;
   jornada;
   nombreWrong = null;
-
+  telWrong;
+  dniWrong;
+  mailWrong;
   constructor(private router: Router, private db: AngularFirestore) {
     this.alumnosRef = this.db.collection('alumnos');
     // toma el id y los datos del elmento
@@ -38,12 +40,10 @@ export class ListadoComponent implements OnInit {
 
   ngOnInit(): void {}
 
-  crearAlumno(nombre, apellido1, tel, dni, email, apellido2?) {
+  crearAlumno(nombre, tel, dni, email) {
     //  añadimos alumnos a la base de datos y le creamos el ID
     this.alumnosRef.doc(dni).set({
       nombre: nombre,
-      apellido1: apellido1,
-      apellido2: apellido2,
       tel: tel,
       dni: dni,
       email: email,
@@ -68,6 +68,28 @@ export class ListadoComponent implements OnInit {
       this.nombreWrong = 'error';
     } else {
       this.nombreWrong = 'success';
+    }
+  }
+
+  comprobarTel(tel: string) {
+    if (tel.length == 9) {
+      this.telWrong = 'success';
+    } else {
+      this.telWrong = 'error';
+    }
+  }
+  comprobarDni(dnie: any) {
+    if (dni.isValid(dnie)) {
+      this.dniWrong = 'success';
+    } else {
+      this.dniWrong = 'error';
+    }
+  }
+  comprobarMail(mail) {
+    if (validator.validate(mail)) {
+      this.mailWrong = 'success';
+    } else {
+      this.mailWrong = 'error';
     }
   }
 }
