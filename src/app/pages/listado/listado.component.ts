@@ -42,19 +42,40 @@ export class ListadoComponent implements OnInit {
 
   crearAlumno(nombre, tel, dni, email) {
     //  añadimos alumnos a la base de datos y le creamos el ID
-    this.alumnosRef.doc(dni).set({
-      nombre: nombre,
-      tel: tel,
-      dni: dni,
-      email: email,
-      rol: this.rol,
-      date: new Date(),
-      jornada: parseInt(this.jornada),
-    });
+
+    if (this.comprobacion()) {
+      this.alumnosRef.doc(dni).set({
+        nombre: nombre,
+        tel: tel,
+        dni: dni,
+        email: email,
+        rol: this.rol,
+        date: new Date(),
+        jornada: parseInt(this.jornada),
+      });
+    } else {
+      console.log('aquie aparecera el error');
+      this.nombreWrong = 'error';
+      this.mailWrong = 'error';
+      this.telWrong = 'error';
+      this.dniWrong = 'error';
+    }
   }
   // tomamos el evento del hijo y lo asignamos en este componente
   rolDefinido(rolParametro: string) {
     this.rol = rolParametro;
+  }
+
+  comprobacion() {
+    const nombre = this.nombreWrong === 'success';
+    const phone = this.telWrong === 'success';
+    const mail = this.mailWrong === 'success';
+    const dni = this.dniWrong === 'success';
+
+    if (nombre && phone && mail && dni) {
+      return true;
+    } else {
+    }
   }
 
   jornadasDefinidas(ev) {
@@ -72,13 +93,16 @@ export class ListadoComponent implements OnInit {
   }
 
   comprobarTel(tel: string) {
-    if (tel.length == 9) {
-      this.telWrong = 'success';
-    } else {
-      this.telWrong = 'error';
-    }
+    // if (tel.length == 9) {
+    //   this.telWrong = 'success';
+    // } else {
+    //   this.telWrong = 'error';
+    // }
+    tel.length == 9 ? (this.telWrong = 'success') : (this.telWrong = 'error');
   }
   comprobarDni(dnie: any) {
+    // es lo mismo asi que con el if pero con sola una instruccion
+    // (dni.isValid(dnie) ? this.dniWrong = 'success' : this.dniWrong = 'error')
     if (dni.isValid(dnie)) {
       this.dniWrong = 'success';
     } else {
