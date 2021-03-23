@@ -16,6 +16,7 @@ import { MatCardModule } from '@angular/material/card';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatIconModule } from '@angular/material/icon';
 import { MatSelectModule } from '@angular/material/select';
+import { MatSnackBarModule } from '@angular/material/snack-bar';
 
 import { ListadoRolComponent } from './components/listado-rol/listado-rol.component';
 import { AdminComponent } from './pages/admin/admin.component';
@@ -56,6 +57,7 @@ const config = {
     MatFormFieldModule,
     MatIconModule,
     MatSelectModule,
+    MatSnackBarModule,
   ],
   providers: [],
   bootstrap: [AppComponent],

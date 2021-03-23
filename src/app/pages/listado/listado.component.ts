@@ -1,9 +1,9 @@
-import { ThrowStmt } from '@angular/compiler';
 import { Component, OnInit } from '@angular/core';
 import { AngularFirestore } from '@angular/fire/firestore';
 import { Router } from '@angular/router';
 import * as dni from 'dni-js-validator';
 import * as validator from 'email-validator';
+import { MatSnackBar } from '@angular/material/snack-bar';
 
 @Component({
   selector: 'app-listado',
@@ -21,7 +21,11 @@ export class ListadoComponent implements OnInit {
   telWrong;
   dniWrong;
   mailWrong;
-  constructor(private router: Router, private db: AngularFirestore) {
+  constructor(
+    private router: Router,
+    private db: AngularFirestore,
+    private snackbar: MatSnackBar
+  ) {
     this.alumnosRef = this.db.collection('alumnos');
     // toma el id y los datos del elmento
     const alumnos = this.db.collection('alumnos').snapshotChanges();
@@ -59,6 +63,7 @@ export class ListadoComponent implements OnInit {
       this.mailWrong = 'error';
       this.telWrong = 'error';
       this.dniWrong = 'error';
+      this.snackbar.open('error', 'ok');
     }
   }
   // tomamos el evento del hijo y lo asignamos en este componente
