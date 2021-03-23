@@ -59,11 +59,15 @@ export class ListadoComponent implements OnInit {
       });
     } else {
       console.log('aquie aparecera el error');
-      this.nombreWrong = 'error';
-      this.mailWrong = 'error';
-      this.telWrong = 'error';
-      this.dniWrong = 'error';
-      this.snackbar.open('error', 'ok');
+      this.nombreWrong == null ? (this.nombreWrong = 'error') : null;
+      this.mailWrong == null ? (this.mailWrong = 'error') : null;
+      this.telWrong == null ? (this.telWrong = 'error') : null;
+      this.dniWrong == null ? (this.dniWrong = 'error') : null;
+      // aqui sale el SNACKBAR, el estilo esta en STYLES.CSS
+      this.snackbar.open('El formulario esta mal', 'Vale', {
+        duration: 2000,
+        panelClass: ['errorSnackBar'],
+      });
     }
   }
   // tomamos el evento del hijo y lo asignamos en este componente
@@ -80,6 +84,7 @@ export class ListadoComponent implements OnInit {
     if (nombre && phone && mail && dni) {
       return true;
     } else {
+      return false;
     }
   }
 
