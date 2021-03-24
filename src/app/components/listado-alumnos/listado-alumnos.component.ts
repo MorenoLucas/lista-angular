@@ -22,6 +22,9 @@ export class ListadoAlumnosComponent implements OnInit, OnChanges {
 
   constructor(private db: AngularFirestore) {
     this.alumnosRef = this.db.collection('alumnos');
+  }
+
+  ngOnInit(): void {
     const alumnos = this.db.collection('alumnos').snapshotChanges();
     alumnos.subscribe((res: any) => {
       //  en un nuevo array nos da el id y los datos y se lo asignamos a alumnos Array
@@ -35,8 +38,6 @@ export class ListadoAlumnosComponent implements OnInit, OnChanges {
       console.log('ARRAY MAPPED', arrayMapped);
     });
   }
-
-  ngOnInit(): void {}
 
   ngOnChanges(changes: SimpleChanges) {
     this.filtrar();

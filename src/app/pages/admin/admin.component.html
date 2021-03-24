@@ -1,3 +1,5 @@
-<app-jornadas (jornada)="filtrarPorJornada($event)"></app-jornadas>
+<div>
+  <app-jornadas (jornada)="filtrarPorJornada($event)"></app-jornadas>
+</div>
 <!-- le pasamos información de un hijo -->
 <app-listado-alumnos [jornada]="jornadaAFiltrar"></app-listado-alumnos>

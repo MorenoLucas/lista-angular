@@ -1,8 +1,12 @@
 <div class="alumnos">
   <ul>
     <!-- CAMBIE ALUMNOS ARRAY POR ALUMNOS ARRAY FILTRADO -->
+    <!-- datapipe -->
     <li *ngFor="let a of alumnosArrayFiltrado" class="alumno">
-      <p class="nombre">{{ a.data.nombre }} {{ a.data.apellido1 }} -</p>
+      <p class="nombre">
+        {{ a?.data?.nombre }} - {{ a?.data?.rol }} -
+        {{ a?.data?.date?.toDate() | date: "shortDate" }}
+      </p>
 
       <span (click)="eliminar(a.id)" class="material-icons"> delete </span>
     </li>
