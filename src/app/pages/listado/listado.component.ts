@@ -21,6 +21,7 @@ export class ListadoComponent implements OnInit {
   telWrong;
   dniWrong;
   mailWrong;
+
   constructor(
     private router: Router,
     private db: AngularFirestore,
@@ -48,15 +49,30 @@ export class ListadoComponent implements OnInit {
     //  añadimos alumnos a la base de datos y le creamos el ID
 
     if (this.comprobacion()) {
-      this.alumnosRef.doc(dni).set({
-        nombre: nombre,
-        tel: tel,
-        dni: dni,
-        email: email,
-        rol: this.rol,
-        date: new Date(),
-        jornada: parseInt(this.jornada),
-      });
+      this.db
+        .collection('alumnos')
+        .doc(dni)
+        .set({
+          nombre: nombre,
+          tel: tel,
+          dni: dni,
+          email: email,
+          rol: this.rol,
+          date: new Date(),
+          jornada: parseInt(this.jornada),
+        })
+        .then(() => {
+          // respuesta exitosa
+          this.snackbar.open('Formulario Correcto', 'OK', {
+            panelClass: ['successSnackbar'],
+          });
+          // redireccionamos a una pagina de bienvenida
+          this.router.navigateByUrl('bienvenida');
+        })
+        .catch((e) => {
+          // nos da error
+          console.error('Error', e);
+        });
     } else {
       console.log('aquie aparecera el error');
       this.nombreWrong == null ? (this.nombreWrong = 'error') : null;

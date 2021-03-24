@@ -12,3 +12,7 @@ body {
   background-color: red;
   color: white;
 }
+.successSnackbar {
+  background-color: green;
+  color: white;
+}
