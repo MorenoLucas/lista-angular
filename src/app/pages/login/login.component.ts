@@ -18,7 +18,7 @@ export class LoginComponent implements OnInit {
     if (this.email && this.password) {
       console.log('Hay un email y un password');
       // llevar a pagina listado
-      this.router.navigateByUrl('listado');
+      this.router.navigateByUrl('admin');
     } else {
       console.log('falta email o pass');
       alert('Falta ingresar el Email o la Contraseña');

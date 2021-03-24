@@ -1,4 +1,11 @@
-import { Component, EventEmitter, OnInit, Output } from '@angular/core';
+import {
+  Component,
+  EventEmitter,
+  OnChanges,
+  OnDestroy,
+  OnInit,
+  Output,
+} from '@angular/core';
 import { AngularFirestore } from '@angular/fire/firestore';
 import { Subscription } from 'rxjs';
 
@@ -7,7 +14,7 @@ import { Subscription } from 'rxjs';
   templateUrl: './jornadas.component.html',
   styleUrls: ['./jornadas.component.css'],
 })
-export class JornadasComponent implements OnInit {
+export class JornadasComponent implements OnInit, OnDestroy {
   selectedItem;
   jornadasArray = [];
   jornadasRef;
@@ -36,6 +43,7 @@ export class JornadasComponent implements OnInit {
           return ele['jornada'];
         });
         this.selectedItem = this.jornadaActual.jornada;
+        this.jornada.emit(this.selectedItem);
       });
   }
   onChange(ev) {
