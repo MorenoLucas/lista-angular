@@ -7,6 +7,7 @@ import {
   SimpleChanges,
 } from '@angular/core';
 import { AngularFirestore } from '@angular/fire/firestore';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-listado-alumnos',
@@ -57,6 +58,19 @@ export class ListadoAlumnosComponent implements OnInit, OnChanges {
 
   eliminar(id) {
     console.log('Nombre', id);
-    this.alumnosRef.doc(id).delete();
+    // this.alumnosRef.doc(id).delete();
+
+    Swal.fire({
+      title: 'Estas seguro que quieres eliminar?',
+
+      showCancelButton: true,
+      confirmButtonText: 'Si!',
+      cancelButtonText: 'No',
+    }).then((result) => {
+      if (result.value) {
+        // lo quiero eliminar
+        this.alumnosRef.doc(id).delete();
+      }
+    });
   }
 }
