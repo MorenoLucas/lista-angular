@@ -31,7 +31,7 @@ export class IsLogueadoGuard implements CanActivate {
     //   this.route.navigateByUrl('/login');
     //   return false;
     // }
-
-    return this.logueado.getEstado();
+    //  volver a poner lo de arriba
+    return true;
   }
 }
