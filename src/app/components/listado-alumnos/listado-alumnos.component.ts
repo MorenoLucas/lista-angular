@@ -62,7 +62,7 @@ export class ListadoAlumnosComponent implements OnInit, OnChanges {
 
     Swal.fire({
       title: 'Estas seguro que quieres eliminar?',
-
+      text: id,
       showCancelButton: true,
       confirmButtonText: 'Si!',
       cancelButtonText: 'No',
