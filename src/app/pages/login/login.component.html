@@ -1,10 +1,40 @@
-<div class="login">
-  <div class="formulario">
-    <label for="">Email</label>
-    <input type="text" class="ingresar" [(ngModel)]="email" />
+<mat-card class="example-card" layout="row" layout-align="center center">
+  <mat-card-content>
+    <div class="container">
+      <div style="text-align: center; margin-bottom: 20px">
+        <mat-card-title>Login</mat-card-title>
+      </div>
+      <mat-form-field appearance="outline" class="email">
+        <mat-label>Email</mat-label>
+        <input
+          matInput
+          type="text"
+          [(ngModel)]="email"
+          placeholder="Intro email"
+        />
+      </mat-form-field>
 
-    <label>Contraseña</label>
-    <input type="password" class="ingresar" [(ngModel)]="password" />
-    <button mat-raised-button (click)="login()">ENTRAR</button>
-  </div>
-</div>
+      <mat-form-field appearance="outline">
+        <mat-label>Password</mat-label>
+        <input
+          matInput
+          [type]="hide ? 'password' : 'text'"
+          [(ngModel)]="password"
+        />
+        <button
+          mat-icon-button
+          matSuffix
+          (click)="hide = !hide"
+          [attr.aria-label]="'Hide password'"
+          [attr.aria-pressed]="hide"
+        >
+          <mat-icon>{{ hide ? "visibility_off" : "visibility" }}</mat-icon>
+        </button>
+      </mat-form-field>
+
+      <button mat-raised-button color="primary" (click)="login()">
+        LOG IN
+      </button>
+    </div>
+  </mat-card-content>
+</mat-card>

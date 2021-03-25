@@ -11,6 +11,7 @@ import { LogueadoService } from '../../servicios/logueado/logueado.service';
 export class LoginComponent implements OnInit {
   email: string;
   password: string;
+  hide = true;
 
   constructor(
     private router: Router,
