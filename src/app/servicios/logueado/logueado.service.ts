@@ -4,7 +4,7 @@ import { Injectable } from '@angular/core';
   providedIn: 'root',
 })
 export class LogueadoService {
-  estoyLogueado: boolean = false;
+  private estoyLogueado: boolean = false;
   constructor() {}
 
   getEstado() {
