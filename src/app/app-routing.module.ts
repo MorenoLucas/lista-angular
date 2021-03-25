@@ -19,6 +19,18 @@ const routes: Routes = [
     path: 'bienvenida',
     component: BienvenidaComponent,
   },
+  // si entras a la ruta por defecto, va a listado
+  {
+    path: '',
+    redirectTo: 'listado',
+    pathMatch: 'full',
+  },
+  // rutas inexistate a HOME
+  {
+    path: '**',
+    redirectTo: 'listado',
+    pathMatch: 'full',
+  },
 ];
 
 @NgModule({
