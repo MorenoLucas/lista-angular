@@ -1,5 +1,12 @@
-<div>
-  <app-jornadas (jornada)="filtrarPorJornada($event)"></app-jornadas>
-</div>
-<!-- le pasamos información de un hijo -->
-<app-listado-alumnos [jornada]="jornadaAFiltrar"></app-listado-alumnos>
+<body>
+  <h2 class="text-center">Jornada a filtrar</h2>
+  <mat-card class="card">
+    <app-jornadas (jornada)="filtrarPorJornada($event)"></app-jornadas>
+
+    <h2 class="text-center">Lista de alumnos</h2>
+
+    <!-- le pasamos información de un hijo -->
+
+    <app-listado-alumnos [jornada]="jornadaAFiltrar"></app-listado-alumnos>
+  </mat-card>
+</body>
