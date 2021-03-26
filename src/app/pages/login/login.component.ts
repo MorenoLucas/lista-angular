@@ -15,6 +15,7 @@ export class LoginComponent implements OnInit {
   hide = true;
   // definimos la variable que controla el formGroup
   formData: FormGroup;
+  pipeVar = 'HOLA';
 
   constructor(
     private router: Router,
@@ -22,7 +23,7 @@ export class LoginComponent implements OnInit {
     private logueado: LogueadoService,
     private fb: FormBuilder
   ) {}
-  // aqui enlazamos, y ponemos las validaciones
+  // aqui declaramos, y ponemos las validaciones
   ngOnInit(): void {
     const email = [
       { value: '', disabled: false },
@@ -36,7 +37,7 @@ export class LoginComponent implements OnInit {
     const config = { email, password };
     this.formData = this.fb.group(config);
   }
-  // devuelve una variable que se puede consultar
+  // enlazamos devuelve una variable que se puede consultar
   get email() {
     return this.formData.get('email');
   }

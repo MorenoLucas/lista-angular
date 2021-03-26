@@ -24,6 +24,7 @@ import { AdminComponent } from './pages/admin/admin.component';
 import { ListadoAlumnosComponent } from './components/listado-alumnos/listado-alumnos.component';
 import { JornadasComponent } from './components/jornadas/jornadas.component';
 import { BienvenidaComponent } from './pages/bienvenida/bienvenida.component';
+import { PipeMinusculasPipe } from './pipes/pipeMinusculas/pipe-minusculas.pipe';
 
 const config = {
   apiKey: 'AIzaSyCyFEMjmxH00nYZWQ4MMqzDNPK5n3EBPhc',
@@ -44,6 +45,7 @@ const config = {
     ListadoAlumnosComponent,
     JornadasComponent,
     BienvenidaComponent,
+    PipeMinusculasPipe,
   ],
   imports: [
     BrowserModule,
