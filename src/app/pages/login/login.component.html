@@ -48,7 +48,12 @@
           </button>
         </mat-form-field>
 
-        <button mat-raised-button color="primary" (click)="login()">
+        <button
+          mat-raised-button
+          color="primary"
+          (click)="login()"
+          [disabled]="formData?.invalid"
+        >
           LOG IN
         </button>
       </div>
