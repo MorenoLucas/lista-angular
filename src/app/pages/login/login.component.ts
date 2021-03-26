@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { LogueadoService } from '../../servicios/logueado/logueado.service';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-login',
@@ -12,14 +13,31 @@ export class LoginComponent implements OnInit {
   email: string;
   password: string;
   hide = true;
+  // definimos la variable que controla el formGroup
+  formData: FormGroup;
 
   constructor(
     private router: Router,
     private snackBar: MatSnackBar,
-    private logueado: LogueadoService
+    private logueado: LogueadoService,
+    private fb: FormBuilder
   ) {}
-
-  ngOnInit(): void {}
+  // aqui enlazamos, y ponemos las validaciones
+  ngOnInit(): void {
+    const email = [
+      { value: '', disabled: false },
+      Validators.email,
+      Validators.required,
+    ];
+    const password = [
+      { value: '', disabled: false },
+      Validators.required,
+      Validators.minLength(2),
+      Validators.maxLength(6),
+    ];
+    const config = { email, password };
+    this.formData = this.fb.group(config);
+  }
 
   login() {
     if (this.email && this.password) {

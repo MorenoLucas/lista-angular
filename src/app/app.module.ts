@@ -8,7 +8,7 @@ import { AngularFireStorageModule } from '@angular/fire/storage';
 import { AngularFireAuthModule } from '@angular/fire/auth';
 import { LoginComponent } from './pages/login/login.component';
 import { ListadoComponent } from './pages/listado/listado.component';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatButtonModule } from '@angular/material/button';
 import { MatInputModule } from '@angular/material/input';
@@ -53,6 +53,7 @@ const config = {
     AngularFireAuthModule, // auth
     AngularFireStorageModule,
     FormsModule,
+    ReactiveFormsModule,
     BrowserAnimationsModule,
     MatButtonModule,
     MatInputModule,

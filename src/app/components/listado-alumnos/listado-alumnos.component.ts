@@ -59,7 +59,7 @@ export class ListadoAlumnosComponent implements OnInit, OnChanges {
   eliminar(id) {
     console.log('Nombre', id);
     // this.alumnosRef.doc(id).delete();
-
+    // es un servicio de afuera que muestra mensaje de alerta
     Swal.fire({
       title: 'Estas seguro que quieres eliminar?',
       text: id,
