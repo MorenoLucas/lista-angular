@@ -32,6 +32,6 @@ export class IsLogueadoGuard implements CanActivate {
     //   return false;
     // }
     //  volver a poner lo de arriba
-    return true;
+    return this.logueado.getEstado();
   }
 }
