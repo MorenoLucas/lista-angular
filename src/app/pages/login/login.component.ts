@@ -43,26 +43,17 @@ export class LoginComponent implements OnInit {
     return this.formData.get('password');
   }
   login() {
-    if (true) {
-      console.log('Hay un email y un password');
-      // comprobar si coincide el mail y el pass
-      if (
-        // this.email === 'sl.lucasmoreno@gmail.com' &&
-        // this.password === '123'
-        true
-      ) {
-        // lleva a pagina admin
-        this.router.navigateByUrl('admin');
-        // creamos servicio para guardar si estamos logeados
-        this.logueado.setEstado(true);
-      } else {
-        this.snackBar.open('El mail o pass son Incorrectos', 'OK', {
-          panelClass: ['errorSnackBar'],
-        });
-        this.logueado.setEstado(false);
-      }
+    // comprobar si coincide el mail y el pass
+    if (
+      this.formData.get('email').value === 'sl.lucasmoreno@gmail.com' &&
+      this.formData.get('password').value === '123'
+    ) {
+      // lleva a pagina admin
+      this.router.navigateByUrl('admin');
+      // creamos servicio para guardar si estamos logeados
+      this.logueado.setEstado(true);
     } else {
-      this.snackBar.open('Falta email o passaword', 'OK', {
+      this.snackBar.open('El mail o pass son Incorrectos', 'OK', {
         panelClass: ['errorSnackBar'],
       });
       this.logueado.setEstado(false);
