@@ -10,8 +10,8 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
   styleUrls: ['./login.component.css'],
 })
 export class LoginComponent implements OnInit {
-  email: string;
-  password: string;
+  // email: string;
+  // password: string;
   hide = true;
   // definimos la variable que controla el formGroup
   formData: FormGroup;
@@ -26,26 +26,30 @@ export class LoginComponent implements OnInit {
   ngOnInit(): void {
     const email = [
       { value: '', disabled: false },
-      Validators.email,
-      Validators.required,
+      [Validators.email, Validators.required],
     ];
     const password = [
       { value: '', disabled: false },
-      Validators.required,
-      Validators.minLength(2),
-      Validators.maxLength(6),
+      [Validators.required, Validators.minLength(2), Validators.maxLength(6)],
     ];
     const config = { email, password };
     this.formData = this.fb.group(config);
   }
-
+  // devuelve una variable que se puede consultar
+  get email() {
+    return this.formData.get('email');
+  }
+  get password() {
+    return this.formData.get('password');
+  }
   login() {
-    if (this.email && this.password) {
+    if (true) {
       console.log('Hay un email y un password');
       // comprobar si coincide el mail y el pass
       if (
-        this.email === 'sl.lucasmoreno@gmail.com' &&
-        this.password === '123'
+        // this.email === 'sl.lucasmoreno@gmail.com' &&
+        // this.password === '123'
+        true
       ) {
         // lleva a pagina admin
         this.router.navigateByUrl('admin');
