@@ -1,7 +1,7 @@
-<div class="alumnos">
+<!-- <div class="alumnos">
   <ul>
-    <!-- CAMBIE ALUMNOS ARRAY POR ALUMNOS ARRAY FILTRADO -->
-    <!-- datapipe -->
+   CAMBIE ALUMNOS ARRAY POR ALUMNOS ARRAY FILTRADO 
+    datapipe 
     <li *ngFor="let a of alumnosArrayFiltrado" class="alumno">
       <p class="nombre">
         {{ a?.data?.nombre }} - {{ a?.data?.rol }} -
@@ -11,4 +11,21 @@
       <span (click)="eliminar(a.id)" class="material-icons"> delete </span>
     </li>
   </ul>
-</div>
+</div> -->
+<table>
+  <!-- <table matSort (matSortChange)="sortData($event)"> -->
+  <tr>
+    <th mat-sort-header="name">Nombre</th>
+    <th mat-sort-header="calories">Rol</th>
+    <th mat-sort-header="fat">Dia</th>
+    <th mat-sort-header="carbs">DNI</th>
+  </tr>
+
+  <tr *ngFor="let a of alumnosArrayFiltrado" class="alumno">
+    <td class="nombre">{{ a?.data?.nombre }}</td>
+    <td>{{ a?.data?.rol }}</td>
+    <td>{{ a?.data?.date?.toDate() | date: "shortDate" }}</td>
+    <td>{{ a?.data?.dni }}</td>
+    <span (click)="eliminar(a.id)" class="material-icons"> delete </span>
+  </tr>
+</table>

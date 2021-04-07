@@ -8,6 +8,7 @@ import {
 } from '@angular/core';
 import { AngularFirestore } from '@angular/fire/firestore';
 import Swal from 'sweetalert2';
+import { Sort } from '@angular/material/sort';
 
 @Component({
   selector: 'app-listado-alumnos',

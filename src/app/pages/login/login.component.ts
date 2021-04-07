@@ -32,7 +32,7 @@ export class LoginComponent implements OnInit {
     const password = [
       { value: '', disabled: false },
       [Validators.required, Validators.minLength(2), Validators.maxLength(6)],
-      Validators.pattern('^[^.]+$'),
+      // Validators.pattern('^[^.]+$'),
     ];
     const config = { email, password };
     this.formData = this.fb.group(config);
