@@ -75,6 +75,7 @@ export class ListadoAlumnosComponent implements OnInit, OnChanges {
       }
     });
   }
+  // funcion de ordenar los campos
   sortData(sort: Sort) {
     const data = this.alumnosArrayFiltrado.slice();
     if (!sort.active || sort.direction === '') {
