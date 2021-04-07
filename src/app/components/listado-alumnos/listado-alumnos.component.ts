@@ -19,11 +19,12 @@ export class ListadoAlumnosComponent implements OnInit, OnChanges {
   alumnosArray = [];
   alumnosRef;
   alumnosArrayFiltrado = [];
-
+  sortedData;
   @Input() jornada;
 
   constructor(private db: AngularFirestore) {
     this.alumnosRef = this.db.collection('alumnos');
+    this.sortedData = this.alumnosArray.slice();
   }
 
   ngOnInit(): void {
@@ -73,5 +74,34 @@ export class ListadoAlumnosComponent implements OnInit, OnChanges {
         this.alumnosRef.doc(id).delete();
       }
     });
+  }
+  sortData(sort: Sort) {
+    const data = this.alumnosArrayFiltrado.slice();
+    if (!sort.active || sort.direction === '') {
+      this.alumnosArrayFiltrado = data;
+      return;
+    }
+
+    this.alumnosArrayFiltrado = data.sort((a, b) => {
+      const isAsc = sort.direction === 'asc';
+      switch (sort.active) {
+        case 'nombre':
+          return compare(a?.data?.nombre, b?.data?.nombre, isAsc);
+        case 'rol':
+          return compare(a?.data?.rol, b?.data?.rol, isAsc);
+        case 'dia':
+          return compare(a?.data?.dia, b?.data?.dia, isAsc);
+        case 'dni':
+          return compare(a?.data?.dni, b?.data?.dni, isAsc);
+        default:
+          return 0;
+      }
+    });
+  }
+}
+
+function compare(a: number | string, b: number | string, isAsc: boolean) {
+  {
+    return (a < b ? -1 : 1) * (isAsc ? 1 : -1);
   }
 }

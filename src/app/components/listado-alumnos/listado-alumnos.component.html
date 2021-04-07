@@ -12,13 +12,13 @@
     </li>
   </ul>
 </div> -->
-<table>
-  <!-- <table matSort (matSortChange)="sortData($event)"> -->
+<!-- <table> -->
+<table matSort (matSortChange)="sortData($event)">
   <tr>
-    <th mat-sort-header="name">Nombre</th>
-    <th mat-sort-header="calories">Rol</th>
-    <th mat-sort-header="fat">Dia</th>
-    <th mat-sort-header="carbs">DNI</th>
+    <th mat-sort-header="nombre">Nombre</th>
+    <th mat-sort-header="rol">Rol</th>
+    <th mat-sort-header="dia">Dia</th>
+    <th mat-sort-header="dni">DNI</th>
   </tr>
 
   <tr *ngFor="let a of alumnosArrayFiltrado" class="alumno">
