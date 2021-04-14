@@ -103,8 +103,6 @@ export class ListadoAlumnosComponent implements OnInit, OnChanges {
           return compare(a?.data?.nombre, b?.data?.nombre, isAsc);
         case 'rol':
           return compare(a?.data?.rol, b?.data?.rol, isAsc);
-        case 'dia':
-          return compare(a?.data?.dia, b?.data?.dia, isAsc);
         case 'dni':
           return compare(a?.data?.dni, b?.data?.dni, isAsc);
         case 'tel':
