@@ -48,7 +48,11 @@
   <!-- Name Column -->
   <ng-container matColumnDef="rol">
     <th mat-header-cell *matHeaderCellDef mat-sort-header="rol">Rol</th>
-    <td mat-cell *matCellDef="let element">{{ element.data.rol }}</td>
+    <td mat-cell *matCellDef="let element">
+      <mat-icon class="material-icons">
+        {{ element.data.rol | iconoRol }}
+      </mat-icon>
+    </td>
   </ng-container>
 
   <!-- Weight Column -->
