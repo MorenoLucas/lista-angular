@@ -28,6 +28,7 @@ import { JornadasComponent } from './components/jornadas/jornadas.component';
 import { BienvenidaComponent } from './pages/bienvenida/bienvenida.component';
 import { PipeMinusculasPipe } from './pipes/pipeMinusculas/pipe-minusculas.pipe';
 import { AumentarDirective } from './directives/aumentar/aumentar.directive';
+import { IconoRolPipe } from './pipes/iconoRol/icono-rol.pipe';
 
 const config = {
   apiKey: 'AIzaSyCyFEMjmxH00nYZWQ4MMqzDNPK5n3EBPhc',
@@ -50,6 +51,7 @@ const config = {
     BienvenidaComponent,
     PipeMinusculasPipe,
     AumentarDirective,
+    IconoRolPipe,
   ],
   imports: [
     BrowserModule,

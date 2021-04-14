@@ -9,7 +9,15 @@ import {
 import { AngularFirestore } from '@angular/fire/firestore';
 import Swal from 'sweetalert2';
 import { Sort } from '@angular/material/sort';
+import * as dni from 'dni-js-validator';
 
+export interface Asistente {
+  name: string;
+  rol: string;
+  tel: string;
+  dni: string;
+  eliminar: any;
+}
 @Component({
   selector: 'app-listado-alumnos',
   templateUrl: './listado-alumnos.component.html',
@@ -21,6 +29,9 @@ export class ListadoAlumnosComponent implements OnInit, OnChanges {
   alumnosArrayFiltrado = [];
   sortedData;
   @Input() jornada;
+
+  displayedColumns: string[] = ['nombre', 'rol', 'tel', 'dni', 'eliminar'];
+  dataSource: Asistente[];
 
   constructor(private db: AngularFirestore) {
     this.alumnosRef = this.db.collection('alumnos');
@@ -57,6 +68,7 @@ export class ListadoAlumnosComponent implements OnInit, OnChanges {
       }
     });
     console.log(this.alumnosArrayFiltrado);
+    this.dataSource = this.alumnosArrayFiltrado;
   }
 
   eliminar(id) {
@@ -80,11 +92,11 @@ export class ListadoAlumnosComponent implements OnInit, OnChanges {
   sortData(sort: Sort) {
     const data = this.alumnosArrayFiltrado.slice();
     if (!sort.active || sort.direction === '') {
-      this.alumnosArrayFiltrado = data;
+      this.dataSource = data;
       return;
     }
 
-    this.alumnosArrayFiltrado = data.sort((a, b) => {
+    this.dataSource = data.sort((a, b) => {
       const isAsc = sort.direction === 'asc';
       switch (sort.active) {
         case 'nombre':

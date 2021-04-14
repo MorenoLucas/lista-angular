@@ -86,9 +86,8 @@
     }
   }
    */
-th,
-td {
-  padding: 10px;
+table {
+  width: 50vw;
 }
 span {
   margin-left: 10px;
