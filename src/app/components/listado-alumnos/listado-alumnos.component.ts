@@ -38,6 +38,7 @@ export class ListadoAlumnosComponent implements OnInit, OnChanges {
       });
       this.alumnosArray = arrayMapped;
       this.alumnosArrayFiltrado = this.alumnosArray;
+      this.filtrar();
       console.log('ARRAY MAPPED', arrayMapped);
     });
   }
