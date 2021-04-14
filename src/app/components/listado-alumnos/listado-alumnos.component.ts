@@ -73,7 +73,7 @@ export class ListadoAlumnosComponent implements OnInit, OnChanges {
       }
     });
     console.log(this.alumnosArrayFiltrado);
-
+    // aqui ordena la lista
     this.dataSource = new MatTableDataSource(this.alumnosArrayFiltrado);
     this.dataSource.sort = this.sort;
   }
