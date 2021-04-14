@@ -9,8 +9,7 @@ import {
 } from '@angular/core';
 import { AngularFirestore } from '@angular/fire/firestore';
 import Swal from 'sweetalert2';
-import { MatSort, Sort } from '@angular/material/sort';
-import { MatTableDataSource } from '@angular/material/table';
+import { Sort } from '@angular/material/sort';
 
 import * as dni from 'dni-js-validator';
 
@@ -34,7 +33,7 @@ export class ListadoAlumnosComponent implements OnInit, OnChanges {
   @Input() jornada;
 
   displayedColumns: string[] = ['nombre', 'rol', 'tel', 'dni', 'eliminar'];
-  dataSource: Asistente[];
+  dataSource;
 
   constructor(private db: AngularFirestore) {
     this.alumnosRef = this.db.collection('alumnos');
