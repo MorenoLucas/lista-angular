@@ -34,7 +34,7 @@ export class ListadoAlumnosComponent implements OnInit, OnChanges {
   @Input() jornada;
 
   displayedColumns: string[] = ['nombre', 'rol', 'tel', 'dni', 'eliminar'];
-  dataSource;
+  dataSource: Asistente[];
 
   constructor(private db: AngularFirestore) {
     this.alumnosRef = this.db.collection('alumnos');
@@ -57,8 +57,6 @@ export class ListadoAlumnosComponent implements OnInit, OnChanges {
     });
   }
 
-  @ViewChild(MatSort) sort: MatSort;
-
   ngOnChanges(changes: SimpleChanges) {
     this.filtrar();
   }
@@ -73,9 +71,7 @@ export class ListadoAlumnosComponent implements OnInit, OnChanges {
       }
     });
     console.log(this.alumnosArrayFiltrado);
-    // aqui ordena la lista
-    this.dataSource = new MatTableDataSource(this.alumnosArrayFiltrado);
-    this.dataSource.sort = this.sort;
+    this.dataSource = this.alumnosArrayFiltrado;
   }
 
   eliminar(id) {
@@ -96,4 +92,33 @@ export class ListadoAlumnosComponent implements OnInit, OnChanges {
     });
   }
   // funcion de ordenar los campos
+  sortData(sort: Sort) {
+    const data = this.alumnosArrayFiltrado.slice();
+    if (!sort.active || sort.direction === '') {
+      this.dataSource = data;
+      return;
+    }
+
+    this.dataSource = data.sort((a, b) => {
+      const isAsc = sort.direction === 'asc';
+      switch (sort.active) {
+        case 'nombre':
+          return compare(a?.data?.nombre, b?.data?.nombre, isAsc);
+        case 'rol':
+          return compare(a?.data?.rol, b?.data?.rol, isAsc);
+        case 'dni':
+          return compare(a?.data?.dni, b?.data?.dni, isAsc);
+        case 'tel':
+          return compare(a?.data?.tel, b?.data?.tel, isAsc);
+        default:
+          return 0;
+      }
+    });
+  }
+}
+
+function compare(a: number | string, b: number | string, isAsc: boolean) {
+  {
+    return (a < b ? -1 : 1) * (isAsc ? 1 : -1);
+  }
 }
