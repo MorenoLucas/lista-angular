@@ -86,8 +86,9 @@
     }
   }
    */
-th {
-  padding: 15px;
+th,
+td {
+  padding: 10px;
 }
 span {
   margin-left: 10px;
