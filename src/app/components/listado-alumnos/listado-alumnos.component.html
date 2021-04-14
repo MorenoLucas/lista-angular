@@ -19,6 +19,7 @@
     <th mat-sort-header="rol">Rol</th>
     <th mat-sort-header="dia">Dia</th>
     <th mat-sort-header="dni">DNI</th>
+    <th mat-sort-header="tel">Telefono</th>
   </tr>
 
   <tr *ngFor="let a of alumnosArrayFiltrado" class="alumno">
@@ -26,6 +27,7 @@
     <td>{{ a?.data?.rol }}</td>
     <td>{{ a?.data?.date?.toDate() | date: "shortDate" }}</td>
     <td>{{ a?.data?.dni }}</td>
+    <td>{{ a?.data?.tel }}</td>
     <span (click)="eliminar(a.id)" class="material-icons"> delete </span>
   </tr>
 </table>
