@@ -29,6 +29,7 @@ import { BienvenidaComponent } from './pages/bienvenida/bienvenida.component';
 import { PipeMinusculasPipe } from './pipes/pipeMinusculas/pipe-minusculas.pipe';
 import { AumentarDirective } from './directives/aumentar/aumentar.directive';
 import { IconoRolPipe } from './pipes/iconoRol/icono-rol.pipe';
+import { environment } from 'src/environments/environment.prod';
 
 @NgModule({
   declarations: [
@@ -47,7 +48,7 @@ import { IconoRolPipe } from './pipes/iconoRol/icono-rol.pipe';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    AngularFireModule.initializeApp(config),
+    AngularFireModule.initializeApp(environment.config),
     AngularFirestoreModule, // firestore
     AngularFireAuthModule, // auth
     AngularFireStorageModule,
